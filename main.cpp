@@ -13,8 +13,5 @@ int main(){
 
 	threadCalc(spectr);
 	spectr.saveDataToFile();
-	
-	
-	
 }
 
