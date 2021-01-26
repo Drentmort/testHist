@@ -1,17 +1,23 @@
 #include <iostream>
-#include <chrono>
+#include <thread>
 #include "gen.h"
-#include "sort.h"
 
-int main(){
+using namespace std;
 
-	Set set;
-	std::string name = "tst_20_32.txt";
-	std::string dir = "C:\\Users\\Anton\\source\\repos\\TestVecrt\\TestVecrt";
-	set.getDataFromFile(name, dir);
-	Spectrum spectr(set);
+int main(int argc, char *argv[]){	
+
+	if (argc != 2) {
+		cerr << "Incorrect count of input values" << endl;
+		return 1;
+	}
+
+	Spectr spectr;
+
+	spectr.getDataFromFile(argv[1]);
 
 	threadCalc(spectr);
+
 	spectr.saveDataToFile();
+
 }
 
